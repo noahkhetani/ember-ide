@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" font-family="'Segoe UI', system-ui, sans-serif" role="img" aria-label="Ember IDE user interface preview">
+  <defs>
+    <clipPath id="round"><rect x="0" y="0" width="1200" height="720" rx="12"/></clipPath>
+  </defs>
+  <g clip-path="url(#round)">
+    <rect width="1200" height="720" fill="#282c34"/>
+
+    <!-- title bar -->
+    <rect width="1200" height="36" fill="#1b1e24"/>
+    <circle cx="22" cy="18" r="6" fill="#e06c75"/>
+    <circle cx="42" cy="18" r="6" fill="#e5c07b"/>
+    <circle cx="62" cy="18" r="6" fill="#98c379"/>
+    <text x="92" y="23" fill="#6b727e" font-size="13">Ember — my-project</text>
+
+    <!-- activity bar -->
+    <rect x="0" y="36" width="56" height="684" fill="#1b1e24"/>
+    <line x1="56" y1="36" x2="56" y2="720" stroke="#181a1f"/>
+    <rect x="0" y="36" width="3" height="48" fill="#61afef"/>
+    <g transform="translate(17,49) scale(0.9167)" fill="none" stroke="#e6e6e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+    </g>
+    <g transform="translate(17,97) scale(0.9167)" fill="none" stroke="#6b727e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+    </g>
+    <g transform="translate(17,145) scale(0.9167)" fill="none" stroke="#6b727e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/>
+    </g>
+    <g transform="translate(17,637) scale(0.9167)" fill="none" stroke="#6b727e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>
+    </g>
+    <g transform="translate(18,682) scale(0.83)" fill="none" stroke="#6b727e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+    </g>
+
+    <!-- sidebar -->
+    <rect x="56" y="36" width="244" height="684" fill="#21252b"/>
+    <line x1="300" y1="36" x2="300" y2="720" stroke="#181a1f"/>
+    <text x="72" y="66" fill="#6b727e" font-size="11" font-weight="700" letter-spacing="0.6">EXPLORER</text>
+    <text x="72" y="83" fill="#6b727e" font-size="11">my-project</text>
+
+    <!-- active file highlight -->
+    <rect x="62" y="160" width="232" height="24" rx="5" fill="#61afef" fill-opacity="0.18"/>
+
+    <!-- tree rows -->
+    <!-- src (folder open) -->
+    <g transform="translate(70,108) scale(0.6)" fill="none" stroke="#6b727e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></g>
+    <g transform="translate(86,108) scale(0.62)" fill="none" stroke="#7aa2d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2"/></g>
+    <text x="108" y="120" fill="#abb2bf" font-size="13">src</text>
+
+    <g transform="translate(102,136) scale(0.62)" fill="none" stroke="#61afef" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m10 13-2 2 2 2"/><path d="m14 13 2 2-2 2"/></g>
+    <text x="124" y="148" fill="#abb2bf" font-size="13">App.tsx</text>
+
+    <g transform="translate(102,164) scale(0.62)" fill="none" stroke="#61afef" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m10 13-2 2 2 2"/><path d="m14 13 2 2-2 2"/></g>
+    <text x="124" y="176" fill="#e6e6e6" font-size="13">Editor.tsx</text>
+
+    <g transform="translate(102,192) scale(0.62)" fill="none" stroke="#61afef" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m10 13-2 2 2 2"/><path d="m14 13 2 2-2 2"/></g>
+    <text x="124" y="204" fill="#abb2bf" font-size="13">Icon.tsx</text>
+
+    <g transform="translate(102,220) scale(0.62)" fill="none" stroke="#e5c07b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m10 13-2 2 2 2"/><path d="m14 13 2 2-2 2"/></g>
+    <text x="124" y="232" fill="#abb2bf" font-size="13">ember-store.ts</text>
+
+    <g transform="translate(102,248) scale(0.62)" fill="none" stroke="#56b6c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></g>
+    <text x="124" y="260" fill="#abb2bf" font-size="13">styles.css</text>
+
+    <g transform="translate(70,276) scale(0.6)" fill="none" stroke="#6b727e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></g>
+    <g transform="translate(86,276) scale(0.62)" fill="none" stroke="#7aa2d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></g>
+    <text x="108" y="288" fill="#abb2bf" font-size="13">packages</text>
+
+    <g transform="translate(102,304) scale(0.62)" fill="none" stroke="#abb2bf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></g>
+    <text x="124" y="316" fill="#abb2bf" font-size="13">README.md</text>
+
+    <!-- tab bar -->
+    <rect x="300" y="36" width="900" height="38" fill="#1b1e24"/>
+    <line x1="300" y1="74" x2="1200" y2="74" stroke="#181a1f"/>
+    <!-- inactive tab -->
+    <line x1="430" y1="44" x2="430" y2="66" stroke="#181a1f"/>
+    <g transform="translate(314,47) scale(0.62)" fill="none" stroke="#61afef" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m10 13-2 2 2 2"/><path d="m14 13 2 2-2 2"/></g>
+    <text x="336" y="60" fill="#6b727e" font-size="12.5">App.tsx</text>
+    <!-- active tab -->
+    <rect x="430" y="37" width="138" height="37" fill="#282c34"/>
+    <rect x="430" y="36" width="138" height="2" fill="#61afef"/>
+    <line x1="568" y1="44" x2="568" y2="66" stroke="#181a1f"/>
+    <g transform="translate(444,47) scale(0.62)" fill="none" stroke="#61afef" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m10 13-2 2 2 2"/><path d="m14 13 2 2-2 2"/></g>
+    <text x="466" y="60" fill="#e6e6e6" font-size="12.5">Editor.tsx</text>
+    <g transform="translate(543,47) scale(0.5)" fill="none" stroke="#abb2bf" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></g>
+    <!-- split icon -->
+    <g transform="translate(1166,46) scale(0.83)" fill="none" stroke="#6b727e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 3v18"/></g>
+
+    <!-- code area -->
+    <rect x="300" y="74" width="900" height="620" fill="#282c34"/>
+    <!-- active line -->
+    <rect x="300" y="222" width="900" height="26" fill="#2c313a"/>
+    <!-- gutter -->
+    <g font-family="'Cascadia Code', Consolas, monospace" font-size="13.5" text-anchor="end">
+      <text x="338" y="116" fill="#4b5263">1</text>
+      <text x="338" y="142" fill="#4b5263">2</text>
+      <text x="338" y="168" fill="#4b5263">3</text>
+      <text x="338" y="194" fill="#4b5263">4</text>
+      <text x="338" y="240" fill="#abb2bf">5</text>
+      <text x="338" y="272" fill="#4b5263">6</text>
+      <text x="338" y="298" fill="#4b5263">7</text>
+    </g>
+    <!-- code -->
+    <g font-family="'Cascadia Code', Consolas, monospace" font-size="13.5">
+      <text x="360" y="116"><tspan fill="#c678dd">import</tspan><tspan fill="#abb2bf"> { useEffect } </tspan><tspan fill="#c678dd">from</tspan><tspan fill="#98c379"> 'react'</tspan><tspan fill="#abb2bf">;</tspan></text>
+      <text x="360" y="142"><tspan fill="#c678dd">import</tspan><tspan fill="#abb2bf"> { Icon } </tspan><tspan fill="#c678dd">from</tspan><tspan fill="#98c379"> './Icon'</tspan><tspan fill="#abb2bf">;</tspan></text>
+      <text x="360" y="194"><tspan fill="#c678dd">export function</tspan><tspan fill="#61afef"> Editor</tspan><tspan fill="#abb2bf">({ </tspan><tspan fill="#e06c75">groupId</tspan><tspan fill="#abb2bf"> }) {</tspan></text>
+      <text x="360" y="240"><tspan fill="#abb2bf">  </tspan><tspan fill="#c678dd">const</tspan><tspan fill="#abb2bf"> view = </tspan><tspan fill="#e5c07b">useEmberStore</tspan><tspan fill="#abb2bf">();</tspan></text>
+      <text x="360" y="272"><tspan fill="#abb2bf">  </tspan><tspan fill="#c678dd">return</tspan><tspan fill="#abb2bf"> </tspan><tspan fill="#e06c75">&lt;div</tspan><tspan fill="#e5c07b"> className</tspan><tspan fill="#abb2bf">=</tspan><tspan fill="#98c379">"editor"</tspan><tspan fill="#e06c75"> /&gt;</tspan><tspan fill="#abb2bf">;</tspan></text>
+      <text x="360" y="298"><tspan fill="#abb2bf">}</tspan></text>
+    </g>
+
+    <!-- status bar -->
+    <rect x="300" y="694" width="900" height="26" fill="#1b1e24"/>
+    <line x1="300" y1="694" x2="1200" y2="694" stroke="#181a1f"/>
+    <text x="316" y="711" fill="#abb2bf" font-size="11.5">Editor.tsx</text>
+    <text x="1010" y="711" fill="#6b727e" font-size="11.5">Ln 5, Col 30</text>
+    <text x="1110" y="711" fill="#61afef" font-size="11.5">TypeScript</text>
+  </g>
+</svg>

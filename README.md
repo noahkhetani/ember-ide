@@ -4,6 +4,8 @@ A lightweight, local-first code editor built with **Electron**, **React**, and *
 
 > Desktop-only · local filesystem · no telemetry · no cloud.
 
+![Ember IDE](docs/screenshot.svg)
+
 ## Features
 
 - **Editor** — CodeMirror 6 with syntax highlighting for JS/TS/JSX/TSX, JSON, CSS/SCSS, HTML, Markdown and Python, plus autocomplete, bracket matching, code folding, and find & replace (`Ctrl+F` / `Ctrl+H`).
