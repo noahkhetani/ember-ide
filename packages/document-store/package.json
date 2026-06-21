@@ -1,0 +1,20 @@
+{
+  "name": "@ember/document-store",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo 'No tests yet'",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@ember/ipc-schema": "workspace:*",
+    "@ember/vfs": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

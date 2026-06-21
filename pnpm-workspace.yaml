@@ -1,0 +1,11 @@
+packages:
+  - "apps/ember-electron/*"
+  - "packages/*"
+
+allowBuilds:
+  electron: true
+  esbuild: true
+
+onlyBuiltDependencies:
+  - electron
+  - esbuild

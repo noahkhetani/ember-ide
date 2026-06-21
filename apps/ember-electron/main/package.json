@@ -1,0 +1,24 @@
+{
+  "name": "@ember/main",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "electron .",
+    "dev": "tsc && electron . --dev",
+    "test": "echo 'No tests yet'",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@ember/document-store": "workspace:*",
+    "@ember/ipc-schema": "workspace:*",
+    "@ember/vfs": "workspace:*",
+    "simple-git": "^3.36.0"
+  },
+  "devDependencies": {
+    "electron": "^28.2.0",
+    "typescript": "^5.4.0"
+  }
+}

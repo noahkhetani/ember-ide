@@ -1,0 +1,19 @@
+{
+  "name": "ember-ide",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently --kill-others \"pnpm --filter @ember/renderer dev\" \"pnpm --filter @ember/main dev\"",
+    "dev:renderer": "pnpm --filter @ember/renderer dev",
+    "dev:main": "pnpm --filter @ember/main dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "clean": "pnpm -r exec -- rm -rf dist"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

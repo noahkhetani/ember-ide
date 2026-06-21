@@ -1,0 +1,16 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": true
+  },
+  "include": ["src"],
+  "references": [
+    { "path": "../../../packages/ipc-schema" },
+    { "path": "../../../packages/vfs" },
+    { "path": "../../../packages/document-store" }
+  ]
+}

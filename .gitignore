@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.vite/
+*.tsbuildinfo
+.DS_Store
+*.log
+
+# Stale pre-rename copy (locked by the editor; superseded by apps/ember-electron)
+apps/forge-electron/
