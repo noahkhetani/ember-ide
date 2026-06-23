@@ -19,7 +19,10 @@ async function statEtag(filePath: string): Promise<{ etag: ETag; mtime: number; 
   try {
     const stat = await fs.stat(filePath);
     if (!stat.isFile()) return null;
-    const mtime = stat.mtimeMs;
+    // Floor to whole milliseconds: stat.mtimeMs is fractional on some platforms,
+    // and the ETag is the canonical change-detector that must satisfy
+    // ipc-schema's integer-only ETagSchema (mtime:<ms>|size:<bytes>).
+    const mtime = Math.floor(stat.mtimeMs);
     const size = stat.size;
     return { etag: computeEtag(mtime, size), mtime, size };
   } catch {

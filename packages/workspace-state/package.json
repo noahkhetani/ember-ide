@@ -1,5 +1,5 @@
 {
-  "name": "@ember/ipc-schema",
+  "name": "@ember/workspace-state",
   "version": "0.1.0",
   "private": true,
   "type": "commonjs",
@@ -11,7 +11,7 @@
     "clean": "node ../../scripts/clean.mjs"
   },
   "dependencies": {
-    "zod": "^3.22.4"
+    "@ember/ipc-schema": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.4.0"
