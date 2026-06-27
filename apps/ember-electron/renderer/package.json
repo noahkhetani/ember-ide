@@ -7,8 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "echo 'No tests yet'",
-    "clean": "rm -rf dist"
+    "test": "vitest run --passWithNoTests",
+    "clean": "node ../../../scripts/clean.mjs"
   },
   "dependencies": {
     "@codemirror/autocomplete": "^6.20.3",

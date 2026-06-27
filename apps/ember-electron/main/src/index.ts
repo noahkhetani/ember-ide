@@ -5,9 +5,14 @@ import { spawn, type ChildProcessWithoutNullStreams } from 'child_process';
 import { randomUUID } from 'crypto';
 import { pathToFileURL, fileURLToPath } from 'url';
 import { simpleGit, type SimpleGit } from 'simple-git';
+import { z } from 'zod';
 import { Vfs } from '@ember/vfs';
 import { DocumentStore } from '@ember/document-store';
-import type { EmberEvent } from '@ember/ipc-schema';
+import {
+  ApplyEditsPayloadSchema,
+  SaveDocumentPayloadSchema,
+  type EmberEvent,
+} from '@ember/ipc-schema';
 
 interface GitFileStatus {
   path: string;
@@ -284,6 +289,27 @@ function handle(channel: string, fn: (args: any) => Promise<unknown>): void {
   });
 }
 
+// Like `handle`, but validates the incoming args against a Zod schema first.
+// Invalid payloads short-circuit to an { ok: false, error: { code: 'invalid' } }
+// envelope (via the thrown error flowing through `handle`'s catch); valid
+// payloads are passed to `fn` fully typed.
+function handleValidated<S extends z.ZodTypeAny>(
+  channel: string,
+  schema: S,
+  fn: (args: z.infer<S>) => Promise<unknown>
+): void {
+  handle(channel, async (rawArgs) => {
+    const parsed = schema.safeParse(rawArgs);
+    if (!parsed.success) {
+      const message = parsed.error.issues
+        .map((i) => `${i.path.join('.') || '(root)'}: ${i.message}`)
+        .join('; ');
+      throw Object.assign(new Error(`Invalid payload for ${channel}: ${message}`), { code: 'invalid' });
+    }
+    return fn(parsed.data);
+  });
+}
+
 // --- Integrated terminal (child_process based; no native PTY dependency) ---
 const terminals = new Map<string, ChildProcessWithoutNullStreams>();
 
@@ -345,9 +371,10 @@ function registerTerminalHandlers(): void {
 function registerIpcHandlers(): void {
   handle('ember:terminal-create', async ({ cwd }) => createTerminal(cwd));
   handle('ember:open-document', ({ uri, options }) => docStore.openDocument(uri, options));
-  handle('ember:apply-edits', ({ uri, clientId, baseVersion, edits }) =>
+  handleValidated('ember:apply-edits', ApplyEditsPayloadSchema, ({ uri, clientId, baseVersion, edits }) =>
     docStore.applyEdits(uri, clientId, baseVersion, edits));
-  handle('ember:save-document', ({ uri, expectedEtag }) => docStore.saveDocument(uri, expectedEtag));
+  handleValidated('ember:save-document', SaveDocumentPayloadSchema, ({ uri, expectedEtag }) =>
+    docStore.saveDocument(uri, expectedEtag));
   handle('ember:undo', ({ uri }) => docStore.undo(uri, 'main'));
   handle('ember:redo', ({ uri }) => docStore.redo(uri, 'main'));
   handle('ember:get-document-snapshot', async ({ uri }) => (await docStore.getDocumentSnapshot(uri)) ?? null);

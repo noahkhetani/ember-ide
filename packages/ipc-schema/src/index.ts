@@ -35,7 +35,7 @@ export const DocumentSnapshotSchema = z.object({
 export type DocumentSnapshot = z.infer<typeof DocumentSnapshotSchema>;
 
 export const RpcErrorSchema = z.object({
-  code: z.enum(["conflict", "stale", "notFound", "other"]),
+  code: z.enum(["conflict", "stale", "notFound", "invalid", "other"]),
   message: z.string(),
   diskEtag: ETagSchema.optional(),
   diskMtime: z.number().optional(),
@@ -64,6 +64,15 @@ export const SaveDocumentRequestSchema = z.object({
   uri: z.string(),
   expectedEtag: ETagSchema.optional(),
 });
+
+// Wire-format payloads. The renderer correlates calls via ipcRenderer.invoke and
+// does NOT send the requestId present in the *Request schemas, so the actual IPC
+// args omit it. These are what the main-process boundary validates against.
+export const ApplyEditsPayloadSchema = ApplyEditsRequestSchema.omit({ requestId: true });
+export type ApplyEditsPayload = z.infer<typeof ApplyEditsPayloadSchema>;
+
+export const SaveDocumentPayloadSchema = SaveDocumentRequestSchema.omit({ requestId: true });
+export type SaveDocumentPayload = z.infer<typeof SaveDocumentPayloadSchema>;
 
 export const UndoRedoRequestSchema = z.object({
   requestId: z.string().uuid(),
@@ -178,3 +187,36 @@ export const EmberEventSchema = z.discriminatedUnion("type", [
   VfsChangedEventSchema,
 ]);
 export type EmberEvent = z.infer<typeof EmberEventSchema>;
+
+// --- Workspace session persistence (M1) ---
+// Per-workspace, restorable editor state. Persisted by main (keyed by workspace
+// path) and exchanged with the renderer, so it lives here with the other IPC
+// shapes. Unsaved-buffer contents are journaled separately, not in this doc.
+
+// Bump when the persisted shape changes incompatibly; @ember/workspace-state
+// migrates older documents up to this version.
+export const WORKSPACE_SESSION_VERSION = 1;
+
+export const TabStateSchema = z.object({
+  uri: z.string(),
+  filename: z.string(),
+  // 0-based caret position (reuses the canonical Position shape).
+  cursor: PositionSchema.optional(),
+  // CodeMirror scrollDOM.scrollTop in pixels.
+  scrollTop: z.number().nonnegative().optional(),
+});
+export type TabState = z.infer<typeof TabStateSchema>;
+
+export const EditorGroupStateSchema = z.object({
+  id: z.string(),
+  tabs: z.array(TabStateSchema),
+  activeUri: z.string().nullable(),
+});
+export type EditorGroupState = z.infer<typeof EditorGroupStateSchema>;
+
+export const WorkspaceSessionSchema = z.object({
+  version: z.literal(WORKSPACE_SESSION_VERSION),
+  groups: z.array(EditorGroupStateSchema),
+  activeGroupId: z.string(),
+});
+export type WorkspaceSession = z.infer<typeof WorkspaceSessionSchema>;

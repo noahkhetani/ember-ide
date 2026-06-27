@@ -8,14 +8,15 @@
     "build": "tsc",
     "start": "electron .",
     "dev": "tsc && electron . --dev",
-    "test": "echo 'No tests yet'",
-    "clean": "rm -rf dist"
+    "test": "vitest run --passWithNoTests",
+    "clean": "node ../../../scripts/clean.mjs"
   },
   "dependencies": {
     "@ember/document-store": "workspace:*",
     "@ember/ipc-schema": "workspace:*",
     "@ember/vfs": "workspace:*",
-    "simple-git": "^3.36.0"
+    "simple-git": "^3.36.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "electron": "^28.2.0",

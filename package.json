@@ -7,11 +7,12 @@
     "dev:main": "pnpm --filter @ember/main dev",
     "build": "pnpm -r build",
     "test": "pnpm -r test",
-    "clean": "pnpm -r exec -- rm -rf dist"
+    "clean": "pnpm -r run clean"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
-    "typescript": "^5.4.0"
+    "typescript": "^5.4.0",
+    "vitest": "^3.2.6"
   },
   "engines": {
     "node": ">=18.0.0"
